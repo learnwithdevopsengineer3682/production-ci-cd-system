@@ -1,0 +1,48 @@
+name: CI Pipeline - Build & Test
+
+on:
+  push:
+    paths:
+      - '02-ci-build-and-test/**'
+    branches:
+      - main
+      - dev
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: 02-ci-build-and-test
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t cicd-prod .
+      
+      - name: Run Container
+        run: docker run -d -p 5000:5000 --name prod-container cicd-prod
+
+      - name: Wait for App (Fail if not ready)
+        run: |
+          for i in {1..10}; do
+            if curl -s http://localhost:5000; then
+              echo "App is up!"
+              exit 0
+            fi
+            echo "Waiting for app..."
+            sleep 2
+          done
+
+          echo "App failed to start"
+          exit 1
+
+      - name: Real Health Check
+        run: curl -f http://localhost:5000
+
+      - name: Cleanup container
+        if: always()
+        run: docker stop prod-container && docker rm prod-container
