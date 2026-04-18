@@ -30,4 +30,4 @@ Use the free version to study the system design, review the code, and understand
 - YouTube: [Learn With DevOps Engineer](https://www.youtube.com/@learnwithdevopsengineer)
 - Instagram: [@learnwithdevopsengineer](https://www.instagram.com/learnwithdevopsengineer/)
 - Newsletter: [Beehiiv updates](https://learnwithdevopsengineer.beehiiv.com/)
-- Topmate: [Book a session](https://topmate.io/learnwithdevopsengineer) for the premium link and coaching placeholder
+- Topmate: [Book a session](https://topmate.io/learnwithdevopsengineer) for the premium link
