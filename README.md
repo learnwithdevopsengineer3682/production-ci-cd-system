@@ -1,6 +1,6 @@
 ## Complete CI/CD System (2 Hours) – Build, Break & Debug Production Pipelines
 
-This is the public-facing version of the CI/CD series.
+This ia full hands-on CI/CD series
 
 ## What is included
 
@@ -9,17 +9,6 @@ This is the public-facing version of the CI/CD series.
 - Kubernetes deployment examples
 - Short episode summaries
 - The same code structure used in the videos
-
-## What this version is for
-
-The free version is enough to understand the architecture, inspect the code, and follow the episode flow.
-
-It is intentionally light on:
-
-- step-by-step setup commands
-- debugging playbooks
-- interview prep
-- deep implementation notes
 
 ## What you will find here
 
