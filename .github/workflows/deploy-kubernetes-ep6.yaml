@@ -1,0 +1,56 @@
+name: CI Pipeline - Prod + K8s Deployment - EP6
+
+on:
+  push:
+    paths:
+      - '06-ai-debugging/**'
+    branches:
+      - main
+      - dev
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select environment'
+        required: true
+        default: 'dev'
+
+jobs:
+  build-test-deploy:
+    runs-on: self-hosted
+
+    defaults:
+      run:
+        working-directory: 06-ai-debugging
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # The cluster must exist before we can load images or apply manifests.
+      - name: Create Kind Cluster
+        run: kind create cluster --name k8s-deployment --config k8s/kind-config.yaml
+
+      - name: Build Docker Image
+        run: docker build -t cicd-prod-ep6 .
+
+      - name: Load Image into Kind
+        run: kind load docker-image cicd-prod-ep6 --name k8s-deployment
+
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
+
+      - name: Wait for Deployment
+        run: kubectl rollout status deployment/prod-app
+
+      # Final verification that the endpoint is reachable from the VM host.
+      - name: Wait for App to be Reachable
+        run: |
+          for i in {1..10}; do
+            echo "Attempt $i..."
+            curl http://localhost:30007 && exit 0
+            sleep 5
+          done
+          echo "App not reachable"
+          exit 1

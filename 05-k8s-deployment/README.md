@@ -1,20 +1,20 @@
-# Episode 2: CI Build & Test
+# Episode 5: Kubernetes Deployment
 
-In this episode, we move from a basic pipeline to a real CI pipeline.
+In this episode, we move the app onto Kubernetes.
 
 What we add:
-- Docker image build
-- Running the application inside the pipeline
-- A test stage
+- A Kubernetes Deployment
+- A Service
+- A NodePort setup for access
 
 What we demonstrate:
-- A pipeline can pass even when the application is broken
+- Kubernetes can manage the app as a declared desired state
 
 Key Learning:
-- CI/CD pipelines only execute steps; they do not guarantee correctness unless tests are meaningful
+- Declarative deployment is more repeatable than managing containers by hand
 
 Fix:
-- We replace fake tests with real validation using application health checks
+- We replace the manual container flow with Kubernetes manifests
 
 ## Stay Connected
 

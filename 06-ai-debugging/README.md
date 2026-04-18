@@ -1,20 +1,20 @@
-# Episode 2: CI Build & Test
+# Episode 6: AI Debugging
 
-In this episode, we move from a basic pipeline to a real CI pipeline.
+In this episode, we use AI to help debug a Kubernetes curl failure.
 
 What we add:
-- Docker image build
-- Running the application inside the pipeline
-- A test stage
+- AI-assisted troubleshooting
+- Log and manifest inspection
+- Faster root-cause analysis
 
 What we demonstrate:
-- A pipeline can pass even when the application is broken
+- AI can speed up debugging, but it still needs real context from the system
 
 Key Learning:
-- CI/CD pipelines only execute steps; they do not guarantee correctness unless tests are meaningful
+- Good debugging mixes AI help with actual signals from logs, pods, and services
 
 Fix:
-- We replace fake tests with real validation using application health checks
+- We trace the failure through the Kubernetes setup and correct the broken path
 
 ## Stay Connected
 

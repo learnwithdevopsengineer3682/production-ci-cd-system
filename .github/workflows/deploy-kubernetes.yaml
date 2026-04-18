@@ -1,0 +1,46 @@
+name: CI Pipeline - Prod + K8s Deployment
+
+on:
+  push:
+    paths:
+      - '05-k8s-deployment/**'
+    branches:
+      - main
+      - dev
+  # Manual trigger added
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select environment'
+        required: true
+        default: 'dev'
+
+jobs:
+  build-test-deploy:
+    runs-on: self-hosted
+
+    defaults:
+      run:
+        working-directory: 05-k8s-deployment
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Build Docker Image
+      - name: Build Docker Image
+        run: docker build -t cicd-prod .
+
+      #  Load Docker image into cluster
+      - name: Load Image into Kind
+        run: kind load docker-image cicd-prod --name k8s-deployment
+
+      # Deploy to Kubernetes 
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
+
+      # Wait for rollout
+      - name: Wait for Deployment
+        run: kubectl rollout status deployment/prod-app

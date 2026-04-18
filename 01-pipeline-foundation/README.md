@@ -1,20 +1,19 @@
-# Episode 2: CI Build & Test
+# Episode 1: Pipeline Foundation
 
-In this episode, we move from a basic pipeline to a real CI pipeline.
+In this episode, we build the first working GitHub Actions pipeline.
 
 What we add:
-- Docker image build
-- Running the application inside the pipeline
-- A test stage
+- A basic GitHub Actions workflow
+- A simple build and run step
 
 What we demonstrate:
-- A pipeline can pass even when the application is broken
+- A pipeline can automate the first checks on the app
 
 Key Learning:
-- CI/CD pipelines only execute steps; they do not guarantee correctness unless tests are meaningful
+- CI/CD starts with a repeatable workflow, not a complex setup
 
 Fix:
-- We replace fake tests with real validation using application health checks
+- We create the foundation that later episodes expand into real build, test, and deploy stages
 
 ## Stay Connected
 

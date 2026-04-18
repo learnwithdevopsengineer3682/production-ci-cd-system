@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prod-app
+  labels:
+    app: prod-app
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: prod-app
+
+  template:
+    metadata:
+      labels:
+        app: prod-app
+
+    spec:
+      containers:
+      - name: prod-container
+
+        # Image built from the episode 6 CI pipeline
+        image: cicd-prod-ep6
+
+        ports:
+        - containerPort: 5000
+        imagePullPolicy: IfNotPresent

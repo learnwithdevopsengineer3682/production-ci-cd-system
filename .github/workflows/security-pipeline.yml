@@ -1,0 +1,44 @@
+name: CI Pipeline - Security
+
+on:
+  push:
+    paths:
+      - '03-security-and-secrets/**'
+    branches:
+      - main
+      - dev
+
+jobs:
+  security-test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: 03-security-and-secrets
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t cicd-secure .
+
+      
+      - name: Set Secret
+        run: echo "API_KEY=my-super-secret-key" >> $GITHUB_ENV
+
+      - name: Run Container
+        run: docker run -d -p 5000:5000 \
+          -e API_KEY=$API_KEY \
+          --name secure-container cicd-secure
+
+      - name: Wait for App
+        run: sleep 5
+
+      # 💣 SECRET LEAK
+      - name: Show Logs
+        run: docker logs secure-container
+
+      - name: Cleanup
+        if: always()
+        run: docker stop secure-container && docker rm secure-container

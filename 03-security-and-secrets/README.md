@@ -1,20 +1,20 @@
-# Episode 2: CI Build & Test
+# Episode 3: Security and Secrets
 
-In this episode, we move from a basic pipeline to a real CI pipeline.
+In this episode, we make the pipeline safer by handling secrets properly.
 
 What we add:
-- Docker image build
-- Running the application inside the pipeline
-- A test stage
+- Secret-aware workflow configuration
+- Safer environment variable usage
+- Better protection for sensitive values
 
 What we demonstrate:
-- A pipeline can pass even when the application is broken
+- A working pipeline can still leak data if secrets are handled poorly
 
 Key Learning:
-- CI/CD pipelines only execute steps; they do not guarantee correctness unless tests are meaningful
+- Security is part of CI/CD, not something you add after the pipeline is finished
 
 Fix:
-- We replace fake tests with real validation using application health checks
+- We move sensitive values out of the code and into secure secret storage
 
 ## Stay Connected
 

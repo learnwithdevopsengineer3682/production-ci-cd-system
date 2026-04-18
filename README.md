@@ -1,82 +1,44 @@
-#  Production CI/CD System (Real-World Series)
+## Complete CI/CD System (2 Hours) – Build, Break & Debug Production Pipelines
 
-This is not a tutorial project.
+This is the public-facing version of the CI/CD series.
 
-This is a **production-style CI/CD system** built step by step, showing how pipelines behave in real-world scenarios — including failures.
+## What is included
 
----
+- Working GitHub Actions pipelines
+- Dockerfiles and application code
+- Kubernetes deployment examples
+- Short episode summaries
+- The same code structure used in the videos
 
-##  What This Project Covers
+## What this version is for
 
-- CI/CD pipeline design using GitHub Actions
-- Docker-based application packaging
-- Kubernetes deployment (coming next)
-- Security improvements and best practices
-- Real production failure simulations
-- AI-assisted debugging (advanced)
+The free version is enough to understand the architecture, inspect the code, and follow the episode flow.
 
----
+It is intentionally light on:
 
-## ⚠️ Important
+- step-by-step setup commands
+- debugging playbooks
+- interview prep
+- deep implementation notes
 
-This project is intentionally built in stages.
+## What you will find here
 
-Each stage improves the system — just like real production environments.
+- [Episode 1](episodes/01-pipeline-foundation/README.md)
+- [Episode 2](episodes/02-ci-build-and-test/README.md)
+- [Episode 3](episodes/03-security-and-secrets/README.md)
+- [Episode 4](episodes/04-deployment-success-but-app-down/README.md)
+- [Episode 5](episodes/05-k8s-deployment/README.md)
+- [Episode 6](episodes/06-ai-debugging/README.md)
 
-👉 Early versions are NOT production-ready  
-👉 Later versions fix real-world issues
+Each episode folder contains the code used in that stage of the series.
 
----
+## Best use
 
-## 📂 Project Structure
-production-cicd-system/
-├── 01-pipeline-foundation/
-├── 02-ci-build-and-test/
-├── 03-security-and-secrets/
-├── 04-kubernetes-deployment/
-├── 05-production-failure-simulation/
-├── 06-ai-debugging/
+Use the free version to study the system design, review the code, and understand the progression from one episode to the next.
 
+## Stay Connected
 
----
-
-## 📺 Episodes
-
-### 01 — Pipeline Foundation
-Basic CI/CD pipeline setup and architecture
-
-### 02 — CI Build & Test
-Add build steps, Docker image creation, and testing
-
-### 03 — Security & Secrets
-Fix insecure pipeline practices and secure secrets
-
-### 04 — Kubernetes Deployment
-Deploy application to Kubernetes
-
-### 05 — Production Failure Simulation
-Simulate real production issues and debug them
-
-### 06 — AI Debugging
-Use AI tools to debug CI/CD failures faster
-
----
-
-## 💡 Why This Project?
-
-Most CI/CD tutorials show only the "happy path".
-
-This project focuses on:
-- what breaks
-- why it breaks
-- how to fix it
-
----
-
-## 🚀 Getting Started
-
-Clone the repo:
-
-```bash
-git clone <your-repo-url>
-cd production-cicd-system
+- YouTube: [Learn With DevOps Engineer](https://www.youtube.com/@learnwithdevopsengineer)
+- Instagram: [@learnwithdevopsengineer](https://www.instagram.com/learnwithdevopsengineer/)
+- Newsletter: [Beehiiv updates](https://learnwithdevopsengineer.beehiiv.com/)
+- Topmate: [Book a session](https://topmate.io/learnwithdevopsengineer) for the premium link and coaching placeholder

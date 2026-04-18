@@ -1,20 +1,20 @@
-# Episode 2: CI Build & Test
+# Episode 4: Deployment Success but App Down
 
-In this episode, we move from a basic pipeline to a real CI pipeline.
+In this episode, we show why a green deploy does not always mean a healthy app.
 
 What we add:
-- Docker image build
-- Running the application inside the pipeline
-- A test stage
+- A deployment stage
+- A post-deploy app check
+- Runtime verification after rollout
 
 What we demonstrate:
-- A pipeline can pass even when the application is broken
+- A pipeline can report success while the application is still broken
 
 Key Learning:
-- CI/CD pipelines only execute steps; they do not guarantee correctness unless tests are meaningful
+- Deployment is not the same as validation; the app must still be checked after it goes live
 
 Fix:
-- We replace fake tests with real validation using application health checks
+- We add health checks and verify the app after deployment
 
 ## Stay Connected
 
